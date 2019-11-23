@@ -20,7 +20,6 @@ public class Hotel {
 
 // loop that continuously repeats the same question if user input is less than or equal to 0
         int days;
-
         do {
             System.out.println("Please Enter the Number of Days You Wish to Stay at ParkSide Hotel: ");
             days = scan.nextInt();
@@ -28,7 +27,6 @@ public class Hotel {
 
 // loop that continuously repeats the same question if user input is equal to or greater than 4
         int desiredRoom;
-
         do {
             System.out.println("Please Choose Your Desired Room Type:  \"1: Standard\", \"2: Deluxe\" or \"3: Suite\"");
             desiredRoom = scan.nextInt();
