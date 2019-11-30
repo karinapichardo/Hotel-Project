@@ -1,74 +1,70 @@
 package com.company;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
+// creating instances
 public class Hotel {
+    String name;
+    double desiredRoom;
+    int days;
+    double taxRate = 0.08;
+    double taxAmount;
+    double total;
+
+    // creating a constructor
+    Hotel(String nameInput, double desiredRoomInput, int daysInput) {
+        this.name = nameInput;
+        this.desiredRoom = desiredRoomInput;
+        this.days = daysInput;
+
+// using conditional if statements to define user choice
+        if (desiredRoomInput == 1) {
+            desiredRoom = 125.25;
+        }
+        if (desiredRoomInput == 2) {
+            desiredRoom = 175.50;
+        }
+        if (desiredRoomInput == 3) {
+            desiredRoom = 175.25;
+        }
+    }
+
+    // creating a method to do calculations
+    double CalculateCharges() {
+        DecimalFormat df = new DecimalFormat(".00");
+        double cost;
+        cost = desiredRoom * days;
+        taxAmount = cost * taxRate;
+        total = cost + taxAmount;
+        System.out.println("Cost: $" + df.format(cost));
+        System.out.println("Tax Amount: $" + df.format(taxAmount));
+        return total;
+    }
 
     public static void main(String[] args) {
 
-// print statement welcoming user
-        System.out.println("Welcome to ParkSide Hotel");
-
-        // getting user input
+        // scanner to get user input
         Scanner scan = new Scanner(System.in);
+
+        System.out.println("Welcome to ParkSide Hotel!");
+
         System.out.println("Please Enter Your Name: ");
+        String name = scan.nextLine();
+        System.out.println("Hi " + name + ", Welcome!");
 
-// displaying user input
-        String customerName = scan.nextLine();
-        System.out.println("Hello " + customerName + "!");
+        System.out.println("Please Choose Your Desired Room Type: 1: Standard, 2: Deluxe, 3: Suite");
+        int desiredRoom = scan.nextInt();
 
-// loop that continuously repeats the same question if user input is less than or equal to 0
-        int days;
-        do {
-            System.out.println("Please Enter the Number of Days You Wish to Stay at ParkSide Hotel: ");
-            days = scan.nextInt();
-        } while (days <= 0);
 
-// loop that continuously repeats the same question if user input is equal to or greater than 4
-        int desiredRoom;
-        do {
-            System.out.println("Please Choose Your Desired Room Type:  \"1: Standard\", \"2: Deluxe\" or \"3: Suite\"");
-            desiredRoom = scan.nextInt();
-        } while (desiredRoom >= 4);
+        System.out.println("Please Enter the Number of Days You Wish to Stay at ParkSide Hotel: ");
+        int days = scan.nextInt();
 
-// defining variables
-        double standard = 125.25;
-        double deluxe = 175.50;
-        double suite = 225.75;
-        double cost = 0;
 
-// allows for numbers to only have two decimal places
-        DecimalFormat df = new DecimalFormat(".00");
+        Hotel c1 = new Hotel(name, desiredRoom, days);
 
-// conditional statements and math to calculate user input
-        switch (desiredRoom) {
-            case 1:
-                System.out.println("Cost Per Day: $125.25");
-                cost = days * standard;
-                System.out.println("Total Cost: $" + df.format(cost));
-                break;
-            case 2:
-                System.out.println("Cost Per Day: $175.50");
-                cost = days * deluxe;
-                System.out.println("Total Cost: $" + df.format(cost));
-                break;
-            case 3:
-                System.out.println("Cost Per Day: $225.75");
-                cost = days * suite;
-                System.out.println("Total Cost: $" + df.format(cost));
-                break;
-        }
-// defining variables and math to calculate tax amount and total charges
-        double taxRate = 0.08;
-        double taxAmount = cost * taxRate;
-
-        // displaying number with two place decimal format
-        System.out.println("Tax Amount: $" + df.format(taxAmount));
-
-        double totalAmount = cost + taxAmount;
-        System.out.println("Total Charges: $" + df.format(totalAmount));
-
+//calling method
+        System.out.println("Total Charges: $" + c1.CalculateCharges());
         System.out.println("Thank You For Staying At ParkSide Hotel!");
+
     }
-}
