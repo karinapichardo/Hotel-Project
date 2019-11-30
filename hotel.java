@@ -56,10 +56,8 @@ public class Hotel {
         System.out.println("Please Choose Your Desired Room Type: 1: Standard, 2: Deluxe, 3: Suite");
         int desiredRoom = scan.nextInt();
 
-
         System.out.println("Please Enter the Number of Days You Wish to Stay at ParkSide Hotel: ");
         int days = scan.nextInt();
-
 
         Hotel c1 = new Hotel(name, desiredRoom, days);
 
@@ -68,3 +66,4 @@ public class Hotel {
         System.out.println("Thank You For Staying At ParkSide Hotel!");
 
     }
+}
