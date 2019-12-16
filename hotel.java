@@ -26,7 +26,7 @@ public class Hotel {
             desiredRoom = 175.50;
         }
         if (desiredRoomInput == 3) {
-            desiredRoom = 175.25;
+            desiredRoom = 225.75;
         }
     }
 
