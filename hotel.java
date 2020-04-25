@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-// creating instances
+
 public class Hotel {
     String name;
     double desiredRoom;
@@ -12,13 +12,12 @@ public class Hotel {
     double taxAmount;
     double total;
 
-    // creating a constructor
+  
     Hotel(String nameInput, double desiredRoomInput, int daysInput) {
         this.name = nameInput;
         this.desiredRoom = desiredRoomInput;
         this.days = daysInput;
 
-// using conditional if statements to define user choice
         if (desiredRoomInput == 1) {
             desiredRoom = 125.25;
         }
@@ -30,7 +29,6 @@ public class Hotel {
         }
     }
 
-    // creating a method to do calculations
     double CalculateCharges() {
         DecimalFormat df = new DecimalFormat(".00");
         double cost;
@@ -61,7 +59,6 @@ public class Hotel {
 
         Hotel c1 = new Hotel(name, desiredRoom, days);
 
-//calling method
         System.out.println("Total Charges: $" + c1.CalculateCharges());
         System.out.println("Thank You For Staying At ParkSide Hotel!");
 
